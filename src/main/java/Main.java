@@ -37,7 +37,7 @@ public class Main {
         }
         System.out.println("Max value: "+max);
 
-        double min = max;//можно взять максимальный элемент чтобы так как больше него нет в массиве
+        double min = max;//можно взять максимальный элемент так как больше него нет в массиве
         for (double i: arr
         ) {
             if(i<min) min=i;
