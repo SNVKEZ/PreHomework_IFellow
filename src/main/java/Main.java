@@ -2,19 +2,25 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-
     static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
-        //task1();
-        //task2();
-        //task3();
-        //task4();
+        int i=0;
+        while (i<1000){
+            System.out.print("Please, choose task: ");
+            i= in.nextInt();
+            if(i==1) task1();
+            if(i==2) task2();
+            if(i==3) task3();
+            if(i==4) task4();
+        }
+
+
     }
 
     public static void task1(){
-        System.out.println("Task 1:");
-        System.out.println("Please, enter amount of elements");
+        System.out.println("Task 1.");
+        System.out.println("Please, enter amount of elements: ");
         int count = in.nextInt();// вводим количество элементов в массиве
 
         double arr[] = new double[count]; //инциализируем массив
@@ -54,8 +60,10 @@ public class Main {
 
 
     public static void task2(){
-        System.out.println("Task 2");
+        System.out.println("Task 2.");
         System.out.println("Please, enter your word: ");
+        String s = in.nextLine();//данный метод необходим, чтобы следующий nextLine не перепрыгивался, впервые с таким
+        //столкнулся, больше решения не нашел в данный момент...
         String str = in.nextLine();//вводим наше слово
         str = str.toLowerCase();//переводим все в нижний регистр чтобы сравнение проходило корректно
         char[] myChar = str.toCharArray();//переобразуем в массив
@@ -74,7 +82,7 @@ public class Main {
         }
     }
     public static void task3(){
-        System.out.println("Task 3");
+        System.out.println("Task 3.");
         System.out.println("Please, enter the number of degrees Celsius");
         double grad = in.nextDouble();
         System.out.println("Please select which degrees to convert to (you need to select a number):");
@@ -90,7 +98,26 @@ public class Main {
         baseConverter.convert();
 
     }
-    public static void task4(){}
+    public static void task4(){
+        System.out.println("Task 4.");
+        int hourse = -1, minutes=-1;
+
+        while(hourse<0 || hourse>12) {//будем запрашивать час пока не будет введено число из диапазона
+            System.out.print("Please,enter time in hours(0-12): ");
+            hourse = in.nextInt();
+        }
+
+        while (minutes<0 || minutes>60){//будем запрашивать минуты пока не будет введено число из диапазона
+            System.out.print("Please,enter time in minutes(0-60): ");
+            minutes = in.nextInt();
+        }
+
+        TimeTask timeTask = new TimeTask(hourse,minutes);
+        timeTask.showTime();//выводим время еще раз на всякий случай
+        System.out.println("Angel of hour and minute hand: "+timeTask.Angel());
+        //считаем угол между стрелками
+
+    }
 
 
 }
