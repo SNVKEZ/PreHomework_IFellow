@@ -73,7 +73,23 @@ public class Main {
             }
         }
     }
-    public static void task3(){}
+    public static void task3(){
+        System.out.println("Task 3");
+        System.out.println("Please, enter the number of degrees Celsius");
+        double grad = in.nextDouble();
+        System.out.println("Please select which degrees to convert to (you need to select a number):");
+        System.out.println("1 - Fahrenheit");
+        System.out.println("2 - Kelvin");
+        System.out.println("3 - Rankin");
+        System.out.println("4 - Delisle");
+        System.out.println("5 - Newton");
+        System.out.println("6 - Réaumur");
+        System.out.println("7 - Römer");
+        int i = in.nextInt();
+        BaseConverter baseConverter = new BaseConverter(i,grad);
+        baseConverter.convert();
+
+    }
     public static void task4(){}
 
 
